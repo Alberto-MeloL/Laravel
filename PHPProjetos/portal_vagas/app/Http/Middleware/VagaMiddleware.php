@@ -16,10 +16,19 @@ class VagaMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->tipo === 'empresa') {
-            # code...
-            return $next($request);
+        if(Auth::check() && Auth::user()->tipo === 'empresa'){
+        return $next($request);
         }
+
+
+        // Se não for uma empresa, redireciona com uma mensagem de erro
+        return redirect()->route('')->
+        withErrors(['access' => 'Você não tem permissão para acessar
+        essa área.']);
+
+
+
+
     }
 }
 

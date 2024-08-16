@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vaga;
+use Illuminate\Support\Facades\Auth;
 
 
 class VagaController extends Controller
@@ -15,9 +16,12 @@ class VagaController extends Controller
      */
     public function index()
     {
-        $vagas = Vaga::all();
+        $empresa = Auth::user()->nome_empresa;
+        $vagas = Vaga::where('empresa',$empresa)->get();
+
         return view('vagas.index',compact('vagas'));
     }
+
 
 
     /**

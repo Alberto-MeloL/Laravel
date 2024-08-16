@@ -4,7 +4,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VagaController;
+use App\Http\Controllers\ControllerDashboard;
+use App\Http\Controllers\InscricaoController;
 use App\Http\Middleware\VagaMiddleware;
+use App\Models\Inscricao;
 
 // Rota para exibir a homePage
 Route::get('/',function(){return view('home');});
@@ -36,10 +39,15 @@ name('usuarios.logout');
 
 
 // Rota para o dashboard, protegida por autenticação
-Route::get('/dashboard', function () {
-    return view('usuarios.dashboard');
-})->middleware('auth')->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('usuarios.dashboard');
+// })->middleware('auth')->name('dashboard');
+
+Route::get('/dashboard', [ControllerDashboard::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::resource('/vagas', VagaController::class)->middleware(VagaMiddleware::class);
 
 // para que serve o class
+
+Route::post('inscricao/add/{vaga}', [InscricaoController::class, 'add'])->middleware('auth')->name('inscricao.add');
+Route::get('vagas/.{vaga}', [VagaController::class])

@@ -16,7 +16,7 @@ Route::post('/login', [UsuarioController::class, 'login'])
     ->name('usuarios.login');
 
 // Rota para exibir o formulário de registro
-Route::get('/registro', [UsuarioController::class, 'showRegisterForm'])
+Route::get('/registro', [UsuarioController::class, 'showRegistroForm'])
     ->name('usuarios.registro');
 
 // Rota para processar o registro
