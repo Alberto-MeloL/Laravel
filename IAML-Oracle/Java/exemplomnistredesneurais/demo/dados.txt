@@ -1,0 +1,8 @@
+Jão Silva, 20 anos, Mercenário, Limeira-SP
+Joana Silva, 20 anos, Mercenária, Limeira-SP
+Jack Silva, 20 anos, Mercenário, Limeira-SP
+Jé Silva, 20 anos, Mercenária, Limeira-SP
+
+
+editor de email, cola em um arquivo e exporta a variavel
+API REST do GitHub
