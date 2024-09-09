@@ -1,0 +1,16 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div>
+    @if (Auth::check())
+        <span>voce esta logado</span>
+    @endif
+    <form method="POST" action="{{route('usuarios.logout')}}">
+        @csrf
+        <input type="submit" value="sair">
+    </form>
+
+</div>
+
+
